@@ -22,3 +22,17 @@ age_in_words = "24 years"
 # print(age + age_in_words)
 print(age)
 print(type(age))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
