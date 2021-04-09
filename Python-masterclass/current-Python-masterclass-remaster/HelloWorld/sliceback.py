@@ -32,11 +32,13 @@ print(letters[25:17:-1]) #  last eight characters reversed
 # ITDIOMS
 
 print(letters[-4:]) #   last 4 characters
+print(letters[-3:])
 print(letters[-1:]) #   last item
 print(letters[:1])  #   first item
 print(letters[0])   #   first item # the downfall is that the code will crush if the sequence is empty
 
-
+seq = ""
+print(seq[:1])  # still prints the first index without causing to run into error
 
 
 
