@@ -10,11 +10,16 @@ print(backward)
 #   For negative step values the starting index must be greater or equal to the ending index. e.g, letters[25:0:-1], letters[2:1:-2]
 
 
-#Example
+# IMPORTANT NOTE
+# If you want to print straight you have to provide the starting and ending index and use a + step size
+# If you want to print backward you have to provide a starting and ending index and use a - step size
+
+
+# Examples
 # create a slice that produces the character qpo
-print(letters[16:13:-1]) #  qpo
-print(letters[-10:-13:-1]) # qpo
-print(letters[16 - 26:13 - 26:-1]) # qpo
+print(letters[16:13:-1])    # qpo
+print(letters[-10:-13:-1])  # qpo
+print(letters[16 - 26:13 - 26:-1])  # qpo
 
 print()
 
