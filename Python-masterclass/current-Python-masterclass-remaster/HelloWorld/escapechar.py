@@ -1,8 +1,8 @@
-splitString = "this staring has been \nsplit over\nseveral\nlines"
-print(splitString)
+split_string = "this staring has been \nsplit over\nseveral\nlines"
+print(split_string)
 
-tabbedString = "1\t2\t3\t4\t5"
-print(tabbedString)
+tabbed_string = "1\t2\t3\t4\t5"
+print(tabbed_string)
 
 print('The pet show owner said "No, no, \'e\'s uh,...he\'s resting"')
 
@@ -14,7 +14,7 @@ print("""The pet show owner said "No, no, 'e's uh,...he's resting" """)
 print()
 
 # this will be printed into several lines because of the triple quote
-print("""This string has been 
+print("""This string has been
 split over 
 several 
 lines""")
@@ -30,28 +30,3 @@ lines""")
 # Escaping the backslash character
 print("C:\\Users\\timebulchalka\\nores.txt")
 print(r"C:\Users\timebulchalka\nores.txt")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
