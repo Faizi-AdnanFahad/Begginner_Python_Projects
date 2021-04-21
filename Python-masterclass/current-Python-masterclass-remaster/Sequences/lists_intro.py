@@ -5,12 +5,45 @@ computer_parts = ["computer",
                   "mouse mat"
                   ]
 
-for part in computer_parts:
-    print(part)
+print(computer_parts)
+# computer_parts[3] = "trackball"
+print(computer_parts[3:])
+# computer_parts[3:] = "trackball" # not what we intended to do
 
-print()
+computer_parts[3:] = ["trackball"]
+print(computer_parts)
 
-print(computer_parts[2])
 
-print(computer_parts[0:3])
-print(computer_parts[-5:4:])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# for part in computer_parts:
+#     print(part)
+#
+# print()
+#
+# print(computer_parts[2])
+#
+# print(computer_parts[0:3])
+# print(computer_parts[-5:4:])
