@@ -1,14 +1,5 @@
-list = [1, 2]
+userInput = input("Please enter three integers seperated by comma: ")
+listInput = userInput.split(",")
 
-listb = [9]
-
-list.extend(listb)
-
-
-list.reverse()
-print(list)
-print(list[::-1])
-
-a = list.pop(1)
-print(a)
-print(list)
+result = int(listInput[0]) + int(listInput[1]) - int(listInput[2])
+print(result)
