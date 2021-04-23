@@ -6,8 +6,8 @@ def list_of_required_items(dict_of_ingredients: dict) -> dict:
     required_ingredients = {}
     for item, number_of_items_needed in dict_of_ingredients.items():
         quantity_in_pantry = pantry.get(item, 0)
-        if quantity_in_pantry > number_of_items_needed:
-            quantity_to_buy = quantity_in_pantry - number_of_items_needed
+        if quantity_in_pantry < number_of_items_needed:
+            quantity_to_buy = number_of_items_needed - quantity_in_pantry
             required_ingredients[item] = quantity_to_buy
 
     return required_ingredients
@@ -18,7 +18,7 @@ def list_of_items_that_are_ok(dict_of_ingredients: dict) -> list:
     list_of_ok_items = []
     for item, number_of_items_needed in dict_of_ingredients.items():
         quantity_in_pantry = pantry.get(item, 0)
-        if quantity_in_pantry <= number_of_items_needed:
+        if quantity_in_pantry >= number_of_items_needed:
             list_of_ok_items.append(item)
     return list_of_ok_items
 
@@ -55,8 +55,8 @@ while True:
         list_ok = list_of_items_that_are_ok(ingredients)
         print(list_ok)
 
-print(shopping_list)
-
+for item, required_value in shopping_list.items():
+    print(item, required_value, sep=": ")
 
 
 
