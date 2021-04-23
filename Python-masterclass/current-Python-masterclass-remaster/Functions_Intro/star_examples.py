@@ -22,3 +22,4 @@ test_star(0, 1, 2, 3, 4, 5, 6)
 print()  # ()
 
 test_star((1, 2, 3), (2, 6))
+test_star("Hi", "This", "is", "a", "tuple" )

@@ -8,7 +8,7 @@ available_parts = ["computer",
 
 current_choice = 20
 computer_parts = []     # create an empty list
-
+available_parts.sort()
 while current_choice != 0:
     if 1 <= int(current_choice) <= len(available_parts):
         chosen_part = current_choice - 1

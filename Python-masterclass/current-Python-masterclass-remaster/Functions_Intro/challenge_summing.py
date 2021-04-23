@@ -42,3 +42,25 @@ def sum_eo2(n, t):
         return -1
 
     return sum(range(start, n, 2))
+
+
+# Third Solution - by me
+def sum_even_odd(n: int, t: str) -> int:
+    total = 0
+    start = -1
+    if t == 'e':
+        start = 2
+    elif t == 'o':
+        start = 1
+
+    for i in range(start, n, 2):
+        total += i
+    return total
+
+
+
+
+
+
+
+
