@@ -6,8 +6,6 @@ def deep_copy_dict(dictionary: dict) -> dict:
     dict_deep_copied = {}
     for keys, values in dictionary.items():
         copy_value = values.copy()
-        print(id(values.copy()))
-        print(id(values))
         dict_deep_copied[keys] = copy_value
 
     return dict_deep_copied

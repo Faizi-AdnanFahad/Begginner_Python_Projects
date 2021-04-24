@@ -1,11 +1,18 @@
-a = [1, 2, 3]
-b = a.copy()
-print(id(b))
-print(id(a))
+numbers = {
+    1: 'one',
+    3: 'three',
+    5: 'five',
+    7: 'seven',
+    9: 'nine',
+}
 
-print()
+b = {
+    4: "four",
+    6: "six",
+}
 
-c = {1: "a"}
-b = c.copy()
-print(id(c))
-print(id(b))
+numbers.update(b)
+print(numbers)  # -> {1: 'one', 3: 'three', 5: 'five', 7: 'seven', 9: 'nine', 4: 'four', 6: 'six'}
+
+print(numbers.update(b))  # None
+
