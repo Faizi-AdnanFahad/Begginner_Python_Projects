@@ -1,3 +1,3 @@
-a = ("hi", "how", "are", "you?")
-text = "".join(a)
-print(text)
+a = ["hi", "how", "are", "you?", 1]
+
+print(a)
