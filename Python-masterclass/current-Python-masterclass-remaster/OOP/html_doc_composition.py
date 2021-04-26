@@ -15,6 +15,7 @@ class Tag(object):
 class DocType(Tag):
 
     def __init__(self):
+        # super() referring to the Tag class
         super().__init__('!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" http://www.w3.org/TR/html4/strict.dtd', '')
         self.end_tag = ''   # DOCTYPE doesn't have end tag
 
@@ -22,6 +23,7 @@ class DocType(Tag):
 class Head(Tag):
 
     def __init__(self, title=None):
+        # super() referring to the Tag class
         super().__init__('Head', '')
         if title is not None:
             # creating a title inside our <head>....</head>, which will be our contents
@@ -31,6 +33,7 @@ class Head(Tag):
 class Body(Tag):
 
     def __init__(self):
+        # super() referring to the Tag class
         super().__init__("body", '')  # body contents will be built separately
         self._body_contents_list = []  # contains all information in the body of the loop, each index can be
                                                                                 # <head>...</head>, ...
@@ -44,6 +47,7 @@ class Body(Tag):
         for tag in self._body_contents_list:
             self.contents += str(tag)
 
+        # super() referring to the Tag class
         super().display(file=file)
 
 
@@ -51,7 +55,7 @@ class HtmlDoc(object):
     # *******************DIFFERENCE EXISTS HERE****************************
     # *******************Composition 54-56****************************
     def __init__(self, title=None):
-        # *Composition - Line 54-56* but not inheritance
+        # *Composition* - Line 59-61* but not inheritance because (no super() call )
         self._doc_type = DocType()
         self._head = Head(title)
         self._body = Body()
@@ -69,7 +73,7 @@ class HtmlDoc(object):
 
 
 if __name__ == '__main__':
-    my_page = HtmlDoc("Hi")  # "Hi" will appear inside  |<head><title>"Hi"</title></head>|
+    my_page = HtmlDoc()  # "Hi" will appear inside  |<head><title>"Hi"</title></head>|
     my_page.add_tag("h1", "Main Heading")  # Inside body
     my_page.add_tag("h2", "sub-heading")   # Inside body
     my_page.add_tag("p", "This is a paragraph that will appear on the page ")  # Inside body
