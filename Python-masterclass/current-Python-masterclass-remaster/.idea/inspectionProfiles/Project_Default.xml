@@ -14,6 +14,7 @@
           <option value="tuple.__setitem__" />
           <option value="dict.__getitem__" />
           <option value="album_name" />
+          <option value="float.fly" />
         </list>
       </option>
     </inspection_tool>
