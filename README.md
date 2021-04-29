@@ -1,3 +1,3 @@
-projects Completed
+Projects Completed
 
-Simplified Vending Machine
+  1. Simplified Vending Machine
