@@ -30,6 +30,20 @@ class Employee:
             return False
         return True
 
+    # The method below is mostly for developers usage
+    def __repr__(self):  # Can be used to appear instead of object location while printing the object
+        return f"Employee '{self.first}', '{self.last}, '{self.last}'"
+
+    # The method below is mostly for users usage
+    def __str__(self):  # Can be used to appear instead of object location while printing the object
+        return f"{self.get_full_name()} - {self.email}"
+
+    def __add__(self, other):  # Usage -> print(emp1 + emp2)
+        return self.pay + other.pay
+
+    def __len__(self):  # can be used for the method __len__
+        return len(self.get_full_name())
+
 
 class Developer(Employee):
 
@@ -83,19 +97,14 @@ print(issubclass(Developer, Manager))  # False
 print(issubclass(Manager, Employee))  # True
 
 
+emp1 = Employee('Adnan', 'Fahad', 5000)
+emp2 = Employee('Salim', 'Fahad', 3000)
+# print(emp1.__repr__())
+print(emp1)  # SAME print(emp1.__str__())    # ----> __str__ is running
 
+# print(emp1 + emp2) # can be used for the case of __Add__
 
-
-
-
-
-
-
-
-
-
-
-
+print(len(emp2))  # can be used for the method __len__
 
 
 
