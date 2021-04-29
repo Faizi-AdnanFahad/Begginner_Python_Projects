@@ -1,1 +1,2 @@
-Simplified Vending Machine App Done
+projects Completed
+Simplified Vending Machine
