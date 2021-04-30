@@ -16,6 +16,8 @@
           <option value="dict.__getitem__" />
           <option value="album_name" />
           <option value="float.fly" />
+          <option value="list.get_grade_letter" />
+          <option value="list.getTitle" />
         </list>
       </option>
     </inspection_tool>

@@ -39,7 +39,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual("Software Design", t)
         self.assertEqual(0, m)
         self.assertTrue(i is None)
-        self.assertTrue(gr.length == 2 and gr[0].equals("F") and gr[1].equals("Failing"))
+        self.assertTrue(len(gr) == 2 and gr[0] == "F" and gr[1] == "Failing")
         self.assertEqual("Software Design has not yet been assigned an instructor", info)
 
         jackie = Instructor("Jackie", 70130, "jackie@eecs.yorku.ca")
@@ -50,10 +50,10 @@ class MyTestCase(unittest.TestCase):
         self.assertTrue(r.getInstructor() is not None
                         and r.getInstructor() == jackie  # reference aliasing #
                         # Q. Can you visualize this chain of method calls? #
-                        and r.getInstructor().getName().equals("Jackie")
+                        and r.getInstructor().getName() == "Jackie"
                         and r.getInstructor().getPhoneExtension() == 70130
-                        and r.getInstructor().getEmail().equals("jackie@eecs.yorku.ca"))
-        self.assertTrue(r.getGradeReport().length == 2)
+                        and r.getInstructor().getEmail() == "jackie@eecs.yorku.ca")
+        self.assertTrue(len(r.getGradeReport()) == 2)
         self.assertEqual(r.getGradeReport()[0], "F")
         self.assertEqual(r.getGradeReport()[1], "Failing")
         self.assertEqual("Software Design, taught by Jackie, is completed with raw marks 0 (F ) Failing)",
@@ -62,9 +62,9 @@ class MyTestCase(unittest.TestCase):
         r.setMarks(61)
 
         self.assertEqual(61, r.getMarks())
-        self.assertTrue(r.getGradeReport().length == 2
-                        and r.getGradeReport()[0].equals("C")
-                        and r.getGradeReport()[1].equals("Competent"))
+        self.assertTrue(len(r.getGradeReport()) == 2
+                        and r.getGradeReport()[0] == "C"
+                        and r.getGradeReport()[1] == "Competent")
         self.assertEqual("Software Design, taught by Jackie, is completed with raw marks 61 (C ) Competent)",
                          r.getInformation())
 
@@ -78,19 +78,19 @@ class MyTestCase(unittest.TestCase):
                          r.getInformation())
 
     def test_case_3(self):
-        r = Registration("Data Structures", Instructor("J. Gibbons", 76283, "jeremy@yorku.ca"))
+        r = Registration.constructor2("Data Structures", Instructor("J. Gibbons", 76283, "jeremy@yorku.ca"))
         r.setMarks(73)
 
         self.assertEqual("Data Structures", r.getTitle())
         self.assertEqual(73, r.getMarks())
-        self.assertTrue(r.getInstructor().getName().equals("J. Gibbons")
+        self.assertTrue(r.getInstructor().getName() == "J. Gibbons"
                         and r.getInstructor().getPhoneExtension() == 76283
-                        and r.getInstructor().getEmail().equals("jeremy@yorku.ca")
-                        and r.getInstructor().getInformation().equals(
-            "J. Gibbons has campus phone extension 76283 and contact email jeremy@yorku.ca"))
-        self.assertTrue(r.getGradeReport().length == 2
-                        and r.getGradeReport()[0].equals("B")
-                        and r.getGradeReport()[1].equals("Good"))
+                        and r.getInstructor().getEmail() == "jeremy@yorku.ca"
+                        and r.getInstructor().getInformation() == (
+                            "J. Gibbons has campus phone extension 76283 and contact email jeremy@yorku.ca"))
+        self.assertTrue(len(r.getGradeReport()) == 2
+                        and r.getGradeReport()[0] == "B"
+                        and r.getGradeReport()[1] == "Good")
         self.assertEqual("Data Structures, taught by J. Gibbons, is completed with raw marks 73 (B ) Good)",
                          r.getInformation())
 
@@ -103,7 +103,7 @@ class MyTestCase(unittest.TestCase):
         report = suyeon.getGPAReport()
 
         # empty list of registrations to begin with #
-        self.assertTrue(suyeonRegistrations.length == 0)
+        self.assertTrue(len(suyeonRegistrations) == 0)
         # GPA undefined over an empty list of registrations #
         self.assertEqual("No GPA available yet for S. Y. Lee", report)
         # non-registered courses have default marks -1 #
@@ -120,10 +120,10 @@ class MyTestCase(unittest.TestCase):
         suyeon.addRegistration(r1)
         suyeon.addRegistration("Heavy Metal Music")
         ############/ make a test and check what happens if you don't call getRegistration
-        self.assertTrue(suyeon.getRegistrations().length == 2
+        self.assertTrue(len(suyeon.getRegistrations()) == 2
                         and suyeon.getRegistrations()[0] == r1
-                        and suyeon.getRegistrations()[1].getTitle().equals("Heavy Metal Music")
-                        and suyeon.getRegistrations()[1].getInstructor() == None)
+                        and suyeon.getRegistrations()[1].getTitle() == "Heavy Metal Music"
+                        and suyeon.getRegistrations()[1].getInstructor() is None)
         self.assertTrue(suyeon.getRegistrations()[0].getMarks() == 0)
         self.assertTrue(suyeon.getRegistrations()[1].getMarks() == 0)
         self.assertTrue(suyeon.marksOf("Intro. to OOP") == 0)  # now a registered course #
@@ -181,10 +181,10 @@ class MyTestCase(unittest.TestCase):
         suyeon.clearRegistrations()
         yuna.clearRegistrations()
 
-        self.assertTrue(suyeon.getRegistrations().length == 0
-                        and yuna.getRegistrations().length == 0)
-        self.assertTrue(suyeon.getGPAReport().equals("No GPA available yet for S. Y. Lee")
-                        and yuna.getGPAReport().equals("No GPA available yet for Y. Lee"))
+        self.assertTrue(len(suyeon.getRegistrations()) == 0
+                        and len(yuna.getRegistrations()) == 0)
+        self.assertTrue(suyeon.getGPAReport() == ("No GPA available yet for S. Y. Lee")
+                        and yuna.getGPAReport() == ("No GPA available yet for Y. Lee"))
         courses = ["Intro. to OOP", "Heavy Metal Music", "Psychology I", "Software Design"]
 
         for i in range(len(courses)):
@@ -195,7 +195,7 @@ class MyTestCase(unittest.TestCase):
         suyeon.addRegistration("Heavy Metal Music")
         suyeon.updateMarks("Heavy Metal Music", 99)
 
-        self.assertTrue(suyeon.getRegistrations().length == 1)
+        self.assertTrue(len(suyeon.getRegistrations()) == 1)
         self.assertEqual("S. Y. Lee's GPA of {9 (A+)}: 9.0", suyeon.getGPAReport())
         self.assertEqual("Heavy Metal Music has not yet been assigned an instructor",
                          suyeon.getRegistrations()[0].getInformation())
@@ -214,8 +214,8 @@ class MyTestCase(unittest.TestCase):
         #
         for i in range(len(lost_of_r)):
             heeyeon.addRegistration(lost_of_r[i])
-        self.assertTrue(heeyeon.getRegistrations().length == i + 1)
-        self.assertTrue(heeyeon.getRegistrations()[i] == lost_of_r[i])
+            self.assertTrue(len(heeyeon.getRegistrations()) == i + 1)
+            self.assertTrue(heeyeon.getRegistrations()[i] == lost_of_r[i])
 
         # Maximum number of registrations allowed is 5.
         # Adding beyond the maximum capacity will have no effect.
@@ -223,7 +223,7 @@ class MyTestCase(unittest.TestCase):
         heeyeon.addRegistration(Registration("ECON1000"))
         heeyeon.addRegistration(Registration("ECON1010"))
 
-        self.assertTrue(heeyeon.getRegistrations().length == 5)
+        self.assertTrue(len(heeyeon.getRegistrations()) == 5)
         self.assertTrue(heeyeon.getRegistrations()[0] == r1)
         self.assertTrue(heeyeon.getRegistrations()[1] == r2)
         self.assertTrue(heeyeon.getRegistrations()[2] == r3)
@@ -237,7 +237,7 @@ class MyTestCase(unittest.TestCase):
         list2 = school.getParticipants("Heavy Metal Music")
         list3 = school.getParticipants("Chamber Music")
 
-        self.assertTrue(list1.length == 0 and list2.length == 0 and list3.length == 0)
+        self.assertTrue(len(list1) == 0 and len(list2) == 0 and len(list3) == 0)
 
         alan = Participant("A. Wassyng")
         mark = Participant("M. Lawford")
@@ -263,18 +263,19 @@ class MyTestCase(unittest.TestCase):
         list2 = school.getParticipants("Heavy Metal Music")
         list3 = school.getParticipants("Chamber Music")
 
-        self.assertTrue(list1.length == 3
+        self.assertTrue(len(list1) == 3
                         and list1[0] == alan
                         and list1[1] == mark
                         and list1[2] == tom)
-        self.assertTrue(list2.length == 2
+        self.assertTrue(len(list2) == 2
                         and list2[0] == mark
                         and list2[1] == tom)
-        self.assertTrue(list3.length == 1
+        self.assertTrue(len(list3) == 1
                         and list3[0] == tom)
 
         # non-existing course #
-        self.assertTrue(school.getParticipants("How to Make Fish and Chips").length == 0)
+        self.assertTrue(len(school.getParticipants("How to Make Fish and Chips")) == 0)
+        self.assertTrue(school.getParticipants("How to Make Fish and Chips") == [])
 
     def test_case_7(self):
         alan = Instructor("A. Wassyng", 70130, "jackie@eecs.yorku.ca")
@@ -290,7 +291,7 @@ class MyTestCase(unittest.TestCase):
         report = suyeon.getGPAReport()
 
         # empty list of registrations to begin with #
-        self.assertTrue(suyeonRegistrations.length == 0)
+        self.assertTrue(len(suyeonRegistrations) == 0)
         # GPA undefined over an empty list of registrations #
         self.assertEqual("No GPA available yet for S. Y. Lee", report)
         # non-registered courses have default marks -1 #
@@ -365,10 +366,10 @@ class MyTestCase(unittest.TestCase):
         suyeon.clearRegistrations()
         yuna.clearRegistrations()
 
-        self.assertTrue(suyeon.getRegistrations().length == 0
-                        and yuna.getRegistrations().length == 0)
-        self.assertTrue(suyeon.getGPAReport().equals("No GPA available yet for S. Y. Lee")
-                        and yuna.getGPAReport().equals("No GPA available yet for Y. Lee"))
+        self.assertTrue(len(suyeon.getRegistrations()) == 0
+                        and len(yuna.getRegistrations()) == 0)
+        self.assertTrue(suyeon.getGPAReport() == ("No GPA available yet for S. Y. Lee")
+                        and yuna.getGPAReport() == ("No GPA available yet for Y. Lee"))
         courses = ["Intro. to OOP", "Heavy Metal Music", "Psychology I", "Software Design"]
         # Q. Without the loop below,
         # how many lines of assertions need to be written explicitly?
@@ -381,7 +382,7 @@ class MyTestCase(unittest.TestCase):
         suyeon.addRegistration("Heavy Metal Music")
         suyeon.updateMarks("Heavy Metal Music", 99)
 
-        self.assertTrue(suyeon.getRegistrations().length == 1)
+        self.assertTrue(len(suyeon.getRegistrations()) == 1)
         self.assertEqual("S. Y. Lee's GPA of {9 (A+)}: 9.0", suyeon.getGPAReport())
         self.assertEqual("Heavy Metal Music has not yet been assigned an instructor",
                          suyeon.getRegistrations()[0].getInformation())

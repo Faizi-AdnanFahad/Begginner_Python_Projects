@@ -1,2 +1,3 @@
-a = {'a': 1, 'b': 3}
-a.update()
+a = [1, 2, 3]
+
+print(dir(list))
