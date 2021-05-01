@@ -193,7 +193,7 @@ class MyTestCase(unittest.TestCase):
         #
 
     def test_case_4(self):
-        # Create an empty which can store
+        # Create an empty zone which can store
         # up to the specified maximum number of movie DVDs.
         #
         z1 = Zone(10)
@@ -292,7 +292,7 @@ class MyTestCase(unittest.TestCase):
         lib.addZones(input1)
         zones1 = lib.getZones()
         self.assertTrue(
-            zones1.length == 2
+            len(zones1) == 2
             and zones1[0] == z1
             and zones1[1] == z2
         )
@@ -301,7 +301,7 @@ class MyTestCase(unittest.TestCase):
         lib.addZones(input2)
         zones2 = lib.getZones()
         self.assertTrue(
-            zones2.length == 3
+            len(zones2) == 3
             and zones2[0] == z1
             and zones2[1] == z2
             and zones2[2] == z3
@@ -311,7 +311,7 @@ class MyTestCase(unittest.TestCase):
         lib.addZones(input3)  # Adding an empty array of zones should cause no change. #
         zones3 = lib.getZones()
         self.assertTrue(
-            zones3.length == 3
+            len(zones3) == 3
             and zones3[0] == z1
             and zones3[1] == z2
             and zones3[2] == z3)
@@ -333,10 +333,10 @@ class MyTestCase(unittest.TestCase):
         # Create an empty which can hold up to 100 zones. #
         lib = Store()
 
-        input_list = {z1, z2, z3}
+        input_list = [z1, z2, z3]
         lib.addZones(input_list)
         zones = lib.getZones()
-        self.assertEqual(3, zones.length)
+        self.assertEqual(3, len(zones))
         self.assertEqual("2 records and 7 DVDs: {La La Land (4), Mission Impossible (3)}", zones[0].getStatus())
         self.assertEqual("2 records and 8 DVDs: {Mission Impossible (6), Groundhog Day (2)}", zones[1].getStatus())
         self.assertEqual("1 records and 5 DVDs: {Toy Story (5)}", zones[2].getStatus())
@@ -348,7 +348,7 @@ class MyTestCase(unittest.TestCase):
         # 		e.g., movie records with name "Mission Impossible" can be located in z1 (3 DVDs) and z2 (6 DVDs).
         #
         stats = lib.getStats("Mission Impossible")  # list of integers
-        self.assertEqual(2, stats.length)
+        self.assertEqual(2, len(stats))
         self.assertEqual(2, stats[0])
         self.assertEqual(3 + 6, stats[1])
 
@@ -356,7 +356,7 @@ class MyTestCase(unittest.TestCase):
         # then both stats information should be 0.
         #
         stats = lib.getStats("Life of Pi")
-        self.assertEqual(2, stats.length)
+        self.assertEqual(2, len(stats))
         self.assertEqual(0, stats[0])
         self.assertEqual(0, stats[1])
 
@@ -377,10 +377,10 @@ class MyTestCase(unittest.TestCase):
         # Create an empty which can up to 100 zones. #
         lib = Store()
 
-        input_list = {z1, z2, z3}
+        input_list = [z1, z2, z3]
         lib.addZones(input_list)
         zonez1 = lib.getZones()
-        self.assertEqual(3, zonez1.length)
+        self.assertEqual(3, len(zonez1))
         self.assertEqual("2 records and 7 DVDs: {La La Land (4), Mission Impossible (3)}", zonez1[0].getStatus())
         self.assertEqual("2 records and 8 DVDs: {Mission Impossible (6), Groundhog Day (2)}", zonez1[1].getStatus())
         self.assertEqual("1 records and 5 DVDs: {Toy Story (5)}", zonez1[2].getStatus())
@@ -398,10 +398,10 @@ class MyTestCase(unittest.TestCase):
         # the order in which they were added to the store.
         #
         zonez2 = lib.getZones(3)
-        self.assertEqual(2, zonez2.length)
+        self.assertEqual(2, len(zonez2))
         self.assertTrue(z1 == zonez2[0])
         self.assertTrue(z2 == zonez2[1])
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main()  # Test individually - Or - make Zone.id_num = 0 at the start of each test
