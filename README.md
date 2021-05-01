@@ -6,3 +6,4 @@ Projects indivitually Completed
   4. Store with Zones and Movie Records app
   5. Html Syntax Creator 
   6. Simplified Song album App
+  7. Distributing Card Deck
