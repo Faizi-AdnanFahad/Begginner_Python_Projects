@@ -1,4 +1,5 @@
 import datetime
+import pygame
 import pytz
 
 # Naive datetime
@@ -7,7 +8,7 @@ import pytz
 # d = datetime.date(2016, 7, 24)  # 2016-07-24
 # print(d)
 #
-# today = datetime.date.today()  # Current local date
+today = datetime.date.today()  # Current local date
 # print(today)
 #
 # print(today.weekday())  # the number of day where Mon = 0, Sun = 6
@@ -17,13 +18,32 @@ import pytz
 # tdelta = datetime.timedelta(days=7)
 # print(today + tdelta)  # 7 days ahead of today's date
 # print(today - tdelta)  # 7 days earlier of today's date
-#
+
+# ----------------------------
+# ***NOTE***
+# date2 = date1 + timedelta
+# timedelta = date1 + date2
+# ----------------------------
+
 # bday = datetime.date(2021, 9, 24)
 # till_bday = bday - today
 # print(till_bday)  # number of days till the given date form today
 # print(till_bday.total_seconds())   # number of seconds till the given date form today
 #
-#
+
+# t = datetime.datetime(2016, 12, 23)
+# print(t.date())
+
+# ------------------------------------
+# *adding days to a certain day and getting a new dat*
+# td = datetime.timedelta(days=7)
+# print(td + datetime.datetime.today())
+# ------------------------------------
+# *Countdown till a day*
+# bday = datetime.datetime(2021, 6, 4)
+# print(bday - datetime.datetime.today())
+# ------------------------------------
+
 # # TIMES - datetime.time()
 #
 # t = datetime.time(9, 30, 45, 10000)
@@ -62,17 +82,17 @@ import pytz
 # for tz in pytz.all_timezones:
 #     print(tz)
 
-
-for i in range(10):
-    print(f"i is {i:02}")  # 2 digits
-
-PI = 3.12313413414134
-print(f"PI is {PI:.2f}")  # PI is 3.12
-
-large = 1000000000000000000000
-print(f"It's separated by commas {large:,.2f}")  # It's separated by commas 1,000,000,000,000,000,000,000.00
-
-
+#
+# for i in range(10):
+#     print(f"i is {i:02}")  # 2 digits
+#
+# PI = 3.12313413414134
+# print(f"PI is {PI:.2f}")  # PI is 3.12
+#
+# large = 1000000000000000000000
+# print(f"It's separated by commas {large:,.2f}")  # It's separated by commas 1,000,000,000,000,000,000,000.00
+#
+#
 
 
 

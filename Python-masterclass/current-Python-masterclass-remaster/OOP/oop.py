@@ -1,6 +1,6 @@
 class Kettle(object):
     # Class attributes
-    power_source = "electriciy"
+    power_source = "electricity"
 
     # Constructor
     def __init__(self, make, price):
@@ -17,11 +17,11 @@ class Kettle(object):
     def get_price(self):
         return self.price
 
-
 # First instance of Kettle object
 kenwood = Kettle("Kenwood", 8.900)
 print(kenwood.make)
 print(kenwood.price)
+
 
 # Changing the value of attributes
 kenwood.price = 12.75

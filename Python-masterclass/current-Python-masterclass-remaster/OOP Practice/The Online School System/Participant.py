@@ -11,7 +11,6 @@ class Participant:
         return self.registrationsList
 
     def getGPAReport(self):
-        result = ''
         seq = '{'
         total = 0
         for registrations in self.getRegistrations():

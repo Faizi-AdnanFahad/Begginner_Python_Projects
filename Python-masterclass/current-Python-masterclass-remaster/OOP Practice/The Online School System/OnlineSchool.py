@@ -15,4 +15,3 @@ class OnlineSchool:
     def addParticipant(self, participantObj):
         if len(self.participant_list) < 100:
             self.participant_list.append(participantObj)
-
